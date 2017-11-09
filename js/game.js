@@ -4,6 +4,30 @@ function setup() {
 	var can = createCanvas(800,600);
 	can.style("border", "1px solid #000");
 	game = new Pong();
+	let titleDiv = createDiv(`Topological Surface Pong`).class('title');
+	let paddleControls = createDiv(`
+<h4>Paddle Controls</h4>
+<p>Player 1: &#8593; and &#8595;</p>
+<p>Player 2: A and Z;</p>
+	`).class('paddleControls');
+	let surfaceControls = createDiv(`
+<h4>Change Surfaces</h4>
+<ul>
+	<li>C - Cylinder</li>
+	<li>T - Torus</li>
+	<li>M - M&#246;bius Strip</li>
+	<li>P - Projetive Plane</li>
+</ul>
+	`).class('surfaceControls');
+	let gameControls = createDiv(`
+<h4>Game Control</h4>
+<p>Spacebar - Pause</p>
+<p>H - Toggle HUD</p>
+	`).class('gameControls');
+	let instructionsDiv = createDiv('').class('instructions');
+	instructionsDiv.child(paddleControls);
+	instructionsDiv.child(surfaceControls);
+	instructionsDiv.child(gameControls);
 }
 
 function draw() {
