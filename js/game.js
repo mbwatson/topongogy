@@ -1,15 +1,13 @@
 let paddle;
 
 function setup() {
-	var can = createCanvas(800,600);
-	can.style("border", "1px solid #000");
+	var canvas = createCanvas(800,600);
 	game = new Pong();
 	displayGameInfo();
 }
 
 function draw() {
-	background(game.field.bgColor);
-  line(width / 2, 0, width / 2, height);
+	game.field.decorate();
 	game.showScores();
 	if (!game.paused) {
 		// update
