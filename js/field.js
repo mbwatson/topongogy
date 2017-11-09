@@ -7,6 +7,13 @@ class Field {
 		this.bgColor = color(255, 255, 255)
 		this.borderColor = color(0, 0, 0);
 	}
+	decorate() {
+		background(game.field.bgColor);
+	  line(width / 2, 0, width / 2, height);
+	  rectMode(CORNER);
+	  noFill();
+	  rect(0,0,width-1,height-1);
+	}
 }
 
 function arrow(a, b, dir) {
