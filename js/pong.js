@@ -35,9 +35,9 @@ class Pong {
 		fill(0)
 		noStroke();
 		textAlign(RIGHT);
-		text(this.p2.points, width/2-50, 50);
+		text(this.p2.points, width/2-20, 50);
 		textAlign(LEFT);
-		text(this.p1.points, width/2+50, 50);
+		text(this.p1.points, width/2+20, 50);
 	}
 
 	showHUD() {
