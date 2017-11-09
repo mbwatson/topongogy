@@ -44,6 +44,11 @@ function keyPressed() {
 	  	game.hits = 0;
 	  }
 	  if (key == 'H') { game.hud = !game.hud; }
+	  // surface change
+	  if (key == 'C') { game.field = new Cylinder(0, 0, width, height); }
+	  if (key == 'T') { game.field = new Torus(0, 0, width, height); }
+	  if (key == 'M') { game.field = new MobiusStrip(0, 0, width, height); }
+	  if (key == 'P') { game.field = new ProjectivePlane(0, 0, width, height); }
 	}
 }
 
