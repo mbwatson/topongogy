@@ -22,7 +22,7 @@ function setup() {
 	let gameControls = createDiv(`
 <h4>Game Control</h4>
 <p>Spacebar - Pause</p>
-<p>R - Re-serve new ball</p>
+<p>S - Serve new ball</p>
 <p>H - Toggle HUD</p>
 	`).class('gameControls');
 	let instructionsDiv = createDiv('').class('instructions');
@@ -62,7 +62,7 @@ function keyPressed() {
 		  if (key == 'Z') { game.p2.paddle.moveDown(); }
 		}
 	  // game control
-	  if (key == 'R') {
+	  if (key == 'S') {
 	  	game.ball.kill();
 	  	game.ball = new Ball(width/2, height/2);
 	  	game.ballCount += 1;
