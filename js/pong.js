@@ -1,6 +1,6 @@
 class Pong {
 	constructor() {
-		this.field = new Field(0, 0, width, height);
+		this.field = new ProjectivePlane(0, 0, width, height);
 		this.p1 = new Player(width - 30, height/2);
 		this.p2 = new Player(30, height/2);
 		this.ball = new Ball(width/2, height/2);
@@ -8,7 +8,6 @@ class Pong {
 		this.paused = false;
 		this.hits = 0;
 		this.maxScore = 5; // unimplemented
-		this.surface = "cylinder";
 	}
 
 	update() {
