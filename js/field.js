@@ -9,12 +9,40 @@ class Field {
 	}
 }
 
-function arrow(x, y, dir) {
+function arrow(a, b, dir) {
+	let h = 8;
+	let w = 8;
+	let vertices = [];
+	switch(dir) {
+		case "up":
+			vertices.push({ 'x': a, 'y': b - h/2 })
+			vertices.push({ 'x': a + w/2, 'y': b + h/2 })
+			vertices.push({ 'x': a - w/2, 'y': b + h/2 })
+			break;
+		case "down":
+			vertices.push({ 'x': a, 'y': b + h/2 })
+			vertices.push({ 'x': a + w/2, 'y': b - h/2 })
+			vertices.push({ 'x': a - w/2, 'y': b - h/2 })
+			break;
+		case "left":
+			vertices.push({ 'x': a - h/2, 'y': b })
+			vertices.push({ 'x': a + h/2, 'y': b - w/2 })
+			vertices.push({ 'x': a + h/2, 'y': b + w/2 })
+			break;
+		case "right":
+			vertices.push({ 'x': a + h/2, 'y': b })
+			vertices.push({ 'x': a - h/2, 'y': b - w/2 })
+			vertices.push({ 'x': a - h/2, 'y': b + w/2 })
+			break;
+		default:
+			break;
+	}
+
 	fill(0);
 	beginShape();
-	vertex(x, y);
-	vertex(x+4, y+10);
-	vertex(x-4, y+10);
+	for (let i = 0; i < vertices.length; i++) {
+		vertex(vertices[i].x, vertices[i].y);
+	}
 	endShape();
 }
 
@@ -46,8 +74,8 @@ class Cylinder extends Field {
 		noFill();
 		stroke(0);
 		rect(x, y, s, s);
-		arrow(x-s/2, y-5);
-		arrow(x+s/2, y-5);
+		arrow(x - s/2, y, 'up');
+		arrow(x + s/2, y, 'up');
 	}
 }
 
@@ -79,8 +107,12 @@ class Torus extends Field {
 		noFill();
 		stroke(0);
 		rect(x, y, s, s);
-		arrow(x-s/2, y-5);
-		arrow(x+s/2, y-5);
+		arrow(x-s/2, y, 'up');
+		arrow(x+s/2, y, 'up');
+		arrow(x-4, y-s/2, 'right');
+		arrow(x+4, y-s/2, 'right');
+		arrow(x-4, y+s/2, 'right');
+		arrow(x+4, y+s/2, 'right');
 	}
 }
 
@@ -116,8 +148,8 @@ class MobiusStrip extends Field {
 		noFill();
 		stroke(0);
 		rect(x, y, s, s);
-		arrow(x-s/2, y-5);
-		arrow(x+s/2, y-5);
+		arrow(x-s/2, y, 'up');
+		arrow(x+s/2, y, 'down');
 	}
 }
 
@@ -157,7 +189,11 @@ class ProjectivePlane extends Field {
 		noFill();
 		stroke(0);
 		rect(x, y, s, s);
-		arrow(x-s/2, y-5);
-		arrow(x+s/2, y-5);
+		arrow(x-s/2, y, 'up');
+		arrow(x+s/2, y, 'down');
+		arrow(x-4, y-s/2, 'right');
+		arrow(x+4, y-s/2, 'right');
+		arrow(x-4, y+s/2, 'left');
+		arrow(x+4, y+s/2, 'left');
 	}
 }
