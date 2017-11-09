@@ -29,12 +29,23 @@ function keyPressed() {
 	if (key === ' ') {
 		game.paused = !game.paused;
 	} else {
-		game.unpause();
 		// players' controls
-	  if (keyCode === UP_ARROW) { game.p1.paddle.moveUp(); }
-	  if (keyCode === DOWN_ARROW) { game.p1.paddle.moveDown(); }
-	  if (key == 'A') { game.p2.paddle.moveUp(); }
-	  if (key == 'Z') { game.p2.paddle.moveDown(); }
+	  if (keyCode === UP_ARROW) {
+			game.unpause();
+	  	game.p1.paddle.moveUp();
+	  }
+	  if (keyCode === DOWN_ARROW) {
+			game.unpause();
+	  	game.p1.paddle.moveDown();
+	  }
+	  if (key == 'A') {
+			game.unpause();
+	  	game.p2.paddle.moveUp();
+	  }
+	  if (key == 'Z') {
+			game.unpause();
+	  	game.p2.paddle.moveDown();
+	  }
 	  // game control
 	  if (key == 'R') {
 	  	game.ball.kill();
