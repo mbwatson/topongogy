@@ -22,6 +22,7 @@ function setup() {
 	let gameControls = createDiv(`
 <h4>Game Control</h4>
 <p>Spacebar - Pause</p>
+<p>R - Re-serve new ball</p>
 <p>H - Toggle HUD</p>
 	`).class('gameControls');
 	let instructionsDiv = createDiv('').class('instructions');
