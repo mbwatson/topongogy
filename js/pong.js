@@ -30,19 +30,31 @@ class Pong {
 		this.ball.update();
 	}
 
+	showScores() {
+		textSize(48);
+		fill(0)
+		noStroke();
+		textAlign(RIGHT);
+		text(this.p2.points, width/2-50, 50);
+		textAlign(LEFT);
+		text(this.p1.points, width/2+50, 50);
+	}
+
 	showHUD() {
 		textSize(12);
 		fill(0);
 		noStroke();
 		textAlign(LEFT);
 		let p1Info = `PLAYER 1
-Paddle @ (${this.p1.paddle.x},${this.p1.paddle.y}) with dy = ${this.p1.paddle.dy}`
+Position: (${this.p1.paddle.x},${this.p1.paddle.y})
+Velocity: ${this.p1.paddle.dy}`
 		let p2Info = `PLAYER 2
-Paddle @ (${this.p2.paddle.x},${this.p2.paddle.y}) with dy = ${this.p2.paddle.dy}`
+Position: (${this.p2.paddle.x},${this.p2.paddle.y})
+velocity: ${this.p2.paddle.dy}`
 	 	textAlign(RIGHT);
-		text(p1Info, width-40, height - 25);
+		text(p1Info, width-40, height - 40);
 	 	textAlign(LEFT);
-		text(p2Info, 40, height - 25);
+		text(p2Info, 40, height - 40);
 		let ballInfo = `Ball
 Position: (${approx(this.ball.x)},${approx(this.ball.y)})
 Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;

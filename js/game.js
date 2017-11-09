@@ -9,16 +9,15 @@ function setup() {
 
 function draw() {
 	background(game.field.bgColor);
+	game.showScores();
 	if (!game.paused) {
 		// update
 		if (game.ball.collide(game.p1.paddle)) {
 			game.ball.swat();
-			game.p1.points +=1;
 			game.hits += 1;
 		}
 		if (game.ball.collide(game.p2.paddle) ) {
 			game.ball.swat();
-			game.p2.points +=1;
 			game.hits += 1;
 		}
 		game.update();
