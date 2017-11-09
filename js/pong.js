@@ -58,7 +58,7 @@ velocity: ${this.p2.paddle.dy}`
 		let ballInfo = `Ball
 Position: (${approx(this.ball.x)},${approx(this.ball.y)})
 Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
-		text(ballInfo, width/2, height - 40);
+		text(ballInfo, width/2+10, height - 40);
 		game.field.draw(width/2-40, height-40, 60);
 	}
 	
