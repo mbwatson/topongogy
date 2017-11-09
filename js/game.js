@@ -3,7 +3,7 @@ let paddle;
 function setup() {
 	var canvas = createCanvas(800,600);
 	game = new Pong();
-	displayGameInfo();
+	showGameControls();
 }
 
 function draw() {
@@ -30,7 +30,7 @@ function draw() {
 	game.ball.draw();
 }
 
-function displayGameInfo() {
+function showGameControls() {
 	let titleDiv = createDiv(`Topological Surface Pong`).class('title');
 	let paddleControls = createDiv(`
 <h4>Paddle Controls</h4>
