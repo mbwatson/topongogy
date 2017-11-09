@@ -9,6 +9,7 @@ function setup() {
 
 function draw() {
 	background(game.field.bgColor);
+  line(width / 2, 0, width / 2, height);
 	game.showScores();
 	if (!game.paused) {
 		// update
