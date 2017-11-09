@@ -1,3 +1,12 @@
+function arrow(x, y, dir) {
+	fill(0);
+	beginShape();
+	vertex(x, y);
+	vertex(x+4, y+10);
+	vertex(x-4, y+10);
+	endShape();
+}
+
 class Cylinder extends Field {
 	constructor(x1, y1, x2, y2) {
 		super(x1, y1, x2, y2);
@@ -17,6 +26,17 @@ class Cylinder extends Field {
 	rightEdge(ball) {
 		ball.x = ball.minX;
 		return(ball);
+	}
+	draw(x, y, s = 80) {
+		noStroke();
+		textAlign(CENTER);
+		rectMode(CENTER);
+		text("Cylinder", x, y - s/2 - 10);
+		noFill();
+		stroke(0);
+		rect(x, y, s, s);
+		arrow(x-s/2, y-5);
+		arrow(x+s/2, y-5);
 	}
 }
 
@@ -39,6 +59,17 @@ class Torus extends Field {
 	rightEdge(ball) {
 		ball.x = ball.minX; 
 		return(ball);
+	}
+	draw(x, y, s = 80) {
+		noStroke();
+		textAlign(CENTER);
+		rectMode(CENTER);
+		text("Torus", x, y - s/2 - 10);
+		noFill();
+		stroke(0);
+		rect(x, y, s, s);
+		arrow(x-s/2, y-5);
+		arrow(x+s/2, y-5);
 	}
 }
 
@@ -65,6 +96,17 @@ class MobiusStrip extends Field {
 		ball.y = ball.maxY - ball.y;
 		ball.dy *= -1;
 		return(ball);
+	}
+	draw(x, y, s = 80) {
+		noStroke();
+		textAlign(CENTER);
+		rectMode(CENTER);
+		text("Mobius Strip", x, y - s/2 - 10);
+		noFill();
+		stroke(0);
+		rect(x, y, s, s);
+		arrow(x-s/2, y-5);
+		arrow(x+s/2, y-5);
 	}
 }
 
@@ -95,5 +137,16 @@ class ProjectivePlane extends Field {
 		ball.y = ball.maxY - ball.y;
 		ball.dy *= -1;
 		return(ball);
+	}
+	draw(x, y, s = 80) {
+		noStroke();
+		textAlign(CENTER);
+		rectMode(CENTER);
+		text("Projective Plane", x, y - s/2 - 10);
+		noFill();
+		stroke(0);
+		rect(x, y, s, s);
+		arrow(x-s/2, y-5);
+		arrow(x+s/2, y-5);
 	}
 }

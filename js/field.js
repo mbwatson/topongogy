@@ -7,9 +7,4 @@ class Field {
 		this.bgColor = color(255, 255, 255)
 		this.borderColor = color(0, 0, 0);
 	}
-
-	draw() {
-
-	}
-
 }
