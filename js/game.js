@@ -8,6 +8,7 @@ function setup() {
 
 function draw() {
 	game.field.decorate();
+	// game.welcomeScreen();
 	game.showScores();
 	if (!game.paused) {
 		// update
@@ -42,6 +43,7 @@ function showGameControls() {
 <ul>
 	<li>C - Cylinder</li>
 	<li>T - Torus</li>
+	<li>S - Sphere</li>
 	<li>M - M&#246;bius Strip</li>
 	<li>P - Projetive Plane</li>
 </ul>
@@ -70,7 +72,7 @@ function keyPressed() {
 		  if (key == 'Z') { game.p2.paddle.moveDown(); }
 		}
 	  // game control
-	  if (key == 'S') {
+	  if (key == 'R') {
 	  	game.ball.kill();
 	  	game.ball = new Ball(width/2, height/2);
 	  	game.ballCount += 1;
@@ -80,6 +82,7 @@ function keyPressed() {
 	  // surface change
 	  if (key == 'C') { game.field = new Cylinder(0, 0, width, height); }
 	  if (key == 'T') { game.field = new Torus(0, 0, width, height); }
+	  if (key == 'S') { game.field = new Sphere(0, 0, width, height); }
 	  if (key == 'M') { game.field = new MobiusStrip(0, 0, width, height); }
 	  if (key == 'P') { game.field = new ProjectivePlane(0, 0, width, height); }
 	}

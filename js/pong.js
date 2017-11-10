@@ -74,4 +74,22 @@ Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		this.paused = false;
 	}
 
+	welcomeScreen() {
+		stroke(0);
+		fill(255);
+		textAlign(CENTER);
+		textSize(60);
+		text("TOPOLOGICAL", width/2, height/2-100);
+		textSize(96);
+		text("PONG", width/2, height/2-30);
+		textSize(16);
+		noStroke();
+		fill(0);
+		text("This is the classic game of Pong on the two-dimensional manifold of your choice!", width/2 - 200, height/2, 400, 200);
+		text("Press the spacebar to begin!", width/2 - 150, height/2 + 200, 300, 100);
+		for (let i = 0; i < 1000; i++) {
+			console.log(i);
+		}
+	}
+
 }
