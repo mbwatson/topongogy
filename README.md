@@ -8,11 +8,10 @@ You may choose to play on a cylinder, torus, sphere (in progress), a Mobuis stri
 
 # Controls
 
-### Player 1 Controls
-`up arrow` and `down arrow` - Move 
+### Paddle Controls
+`up arrow` and `down arrow` - Player 1 controls
 
-### Player 2 Controls
-`A` and `Z` - Move 
+`A` and `Z` - Player 2 controls
 
 ### Surface Change
 C - Cylinder
@@ -28,6 +27,6 @@ P - Projective Plane
 ### Global Controls
 `Spacebar` - Pause
 
-`B` - Re-serve ball
+`B` - New Ball
 
-`H` - Show/hide HUD
+`H` - Toggle HUD
