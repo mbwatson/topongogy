@@ -73,26 +73,32 @@ Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		noStroke();
 		fill(0);
 		textSize(12);
+		textStyle(BOLD);
+		text('PADDLE CONTROLS', width/2 - 200, height/2 + 50);
+		textStyle(NORMAL);
 		text(`
-PADDLE CONTROLS
 Player 1 - UP and DOWN
 Player 2 - A and Z
-`, width/2-200, height/2);
+`, width/2-200, height/2 + 50);
+		textStyle(BOLD);
+		text('CHANGE SURFACES', width/2, height/2 + 50);
+		textStyle(NORMAL);
 		text(`
-CHANGE SURFACES
 C - Cylinder
 T - Torus
 S - Sphere
 M - Mobius Strip
 P - Projetive Plane
-`, width/2, height/2);
+`, width/2, height/2 + 50);
+		textStyle(BOLD);
+		text('GAME CONTROL', width/2 + 200, height/2 + 50);
+		textStyle(NORMAL);
 		text(`
-GAME CONTROL
 Spacebar - Pause
 B - New Ball
 H - Toggle HUD
 R - Reset Scores
-`, width/2+200, height/2);
+`, width/2 + 200, height/2 + 50);
 	}
 
 	pauseScreen() {
