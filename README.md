@@ -8,7 +8,7 @@ You may choose to play on a cylinder, torus, sphere (in progress), a Mobuis stri
 
 # Controls
 
-### Paddle Controls
+### Paddles
 `up arrow` and `down arrow` - Player 1 controls
 
 `A` and `Z` - Player 2 controls

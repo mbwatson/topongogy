@@ -4,7 +4,7 @@ let paddle;
 // 2 - Game Over (coming soon)
 
 function setup() {
-	var canvas = createCanvas(800,600);
+	var canvas = createCanvas(800,800);
 	game = new Pong();
 }
 

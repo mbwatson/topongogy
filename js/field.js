@@ -76,7 +76,6 @@ class Cylinder extends Field {
 		return(ball);
 	}
 	draw(x, y, s = 80) {
-		noStroke();
 		textAlign(CENTER);
 		rectMode(CENTER);
 		text("Cylinder", x, y - s/2 - 10);
@@ -212,27 +211,27 @@ class Sphere extends Field {
 		super(x1, y1, x2, y2);
 	}
 	topEdge(ball) {
-		ball.x = ball.maxX;
 		ball.y = ball.maxY - ball.x;
-		ball.dy = [ball.dx, ball.dx = ball.dy][0];
+		ball.x = ball.maxX;
+		ball.dx = [ball.dy, ball.dy = -ball.dx][0];
 		return(ball);
 	}
 	rightEdge(ball) {
-		ball.y = ball.minY;
 		ball.x = ball.maxX - ball.y;
-		ball.dy = [ball.dx, ball.dx = ball.dy][0];
+		ball.y = ball.minY;
+		ball.dx = [-ball.dy, ball.dy = ball.dx][0];
 		return(ball);
 	}
 	bottomEdge(ball) {
-		ball.x = ball.maxX;
 		ball.y = ball.maxY - ball.x;
-		ball.dy = [ball.dx, ball.dx = ball.dy][0];
+		ball.x = ball.minX;
+		ball.dx = [ball.dy, ball.dy = -ball.dx][0];
 		return(ball);
 	}
 	leftEdge(ball) {
-		ball.x = ball.maxX;
-		ball.y = ball.maxY - ball.y;
-		ball.dy *= -1;
+		ball.x = ball.maxX - ball.y;
+		ball.y = ball.maxY;
+		ball.dx = [-ball.dy, ball.dy = ball.dx][0];
 		return(ball);
 	}
 	draw(x, y, s = 80) {
