@@ -16,12 +16,18 @@ You may choose to play on a cylinder, torus, sphere (in progress), a Mobuis stri
 
 ### Surface Change
 C - Cylinder
+
 T - Torus
+
 S - Sphere
+
 M - M&ouml;bius Strip
+
 P - Projective Plane
 
 ### Global Controls
 `Spacebar` - Pause
+
 `B` - Re-serve ball
+
 `H` - Show/hide HUD
