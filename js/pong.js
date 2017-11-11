@@ -106,7 +106,8 @@ R - Reset Scores
 		stroke(0);
 		fill(255);
 		textAlign(CENTER);
-		text("PAUSED", width/2, height/2-100);
+		let x = 50*sin(round(millis())/1000);
+		text("PAUSED", width/2 + x, height/2-100);
 		this.showGameControls();
 	}
 
