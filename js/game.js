@@ -68,6 +68,7 @@ function keyPressed() {
 	  	game.hits = 0;
 	  }
 	  if (key == 'H') { game.hud = !game.hud; }
+	  if (key == 'R') { game.resetScores(); }
 	  // surface change
 	  if (key == 'C') { game.field = new Cylinder(0, 0, width, height); }
 	  if (key == 'T') { game.field = new Torus(0, 0, width, height); }

@@ -4,7 +4,7 @@ class Player {
 		this.points = 0;
 	}
 
-	score() {
-		this.points += 1;
+	score(val = this.points + 1) {
+		this.points = val;
 	}
 }

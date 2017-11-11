@@ -62,6 +62,11 @@ Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		text(ballInfo, width/2+10, height - 40);
 		game.field.draw(width/2-40, height-40, 60);
 	}
+
+	resetScores() {
+		game.p1.score(0);
+		game.p2.score(0);
+	}
 	
 	showGameControls() {
 		textAlign(CENTER);
@@ -86,6 +91,7 @@ GAME CONTROL
 Spacebar - Pause
 B - New Ball
 H - Toggle HUD
+R - Reset Scores
 `, width/2+200, height/2);
 	}
 
