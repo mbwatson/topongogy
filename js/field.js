@@ -12,47 +12,11 @@ class Field {
 		background(game.field.bgColor);
 	  noFill();
 	  stroke(200);
-	  line(width / 2, 0, width / 2, height);
+	  // line(width / 2, 0, width / 2, height);
+	  dottedLine(width / 2, 0, width / 2, height, 20, 1);
 	  rectMode(CORNER);
 	  rect(0,0,width-1,height-1);
 	}
-}
-
-function arrow(a, b, dir) {
-	let h = 8;
-	let w = 8;
-	let vertices = [];
-	switch(dir) {
-		case "up":
-			vertices.push({ 'x': a, 'y': b - h/2 })
-			vertices.push({ 'x': a + w/2, 'y': b + h/2 })
-			vertices.push({ 'x': a - w/2, 'y': b + h/2 })
-			break;
-		case "down":
-			vertices.push({ 'x': a, 'y': b + h/2 })
-			vertices.push({ 'x': a + w/2, 'y': b - h/2 })
-			vertices.push({ 'x': a - w/2, 'y': b - h/2 })
-			break;
-		case "left":
-			vertices.push({ 'x': a - h/2, 'y': b })
-			vertices.push({ 'x': a + h/2, 'y': b - w/2 })
-			vertices.push({ 'x': a + h/2, 'y': b + w/2 })
-			break;
-		case "right":
-			vertices.push({ 'x': a + h/2, 'y': b })
-			vertices.push({ 'x': a - h/2, 'y': b - w/2 })
-			vertices.push({ 'x': a - h/2, 'y': b + w/2 })
-			break;
-		default:
-			break;
-	}
-
-	fill(0);
-	beginShape();
-	for (let i = 0; i < vertices.length; i++) {
-		vertex(vertices[i].x, vertices[i].y);
-	}
-	endShape();
 }
 
 class Cylinder extends Field {
@@ -249,4 +213,41 @@ class Sphere extends Field {
 		arrow(x-4, y+s/2, 'right');
 		arrow(x+4, y+s/2, 'right');
 	}
+}
+
+function arrow(a, b, dir) {
+	let h = 8;
+	let w = 8;
+	let vertices = [];
+	switch(dir) {
+		case "up":
+			vertices.push({ 'x': a, 'y': b - h/2 })
+			vertices.push({ 'x': a + w/2, 'y': b + h/2 })
+			vertices.push({ 'x': a - w/2, 'y': b + h/2 })
+			break;
+		case "down":
+			vertices.push({ 'x': a, 'y': b + h/2 })
+			vertices.push({ 'x': a + w/2, 'y': b - h/2 })
+			vertices.push({ 'x': a - w/2, 'y': b - h/2 })
+			break;
+		case "left":
+			vertices.push({ 'x': a - h/2, 'y': b })
+			vertices.push({ 'x': a + h/2, 'y': b - w/2 })
+			vertices.push({ 'x': a + h/2, 'y': b + w/2 })
+			break;
+		case "right":
+			vertices.push({ 'x': a + h/2, 'y': b })
+			vertices.push({ 'x': a - h/2, 'y': b - w/2 })
+			vertices.push({ 'x': a - h/2, 'y': b + w/2 })
+			break;
+		default:
+			break;
+	}
+
+	fill(0);
+	beginShape();
+	for (let i = 0; i < vertices.length; i++) {
+		vertex(vertices[i].x, vertices[i].y);
+	}
+	endShape();
 }

@@ -1,17 +1,3 @@
-function sign(n) {
-	return (n > 0 ? 1 : n < 0 ? -1 : null);
-}
-
-function coinFlip() {
-	return 2*floor(random(0,2) ) - 1;
-}
-
-function randomIn(set)
-{
-    var randomKey = floor(random() * set.length);
-    return set[randomKey];
-}
-
 class Ball {
 	constructor(x,y) {
 		this.x = x;

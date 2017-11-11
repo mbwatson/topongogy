@@ -78,6 +78,35 @@ function keyPressed() {
 	}
 }
 
+  /////////////////////////
+ // Miscellaneous Tools //
+////////////////////////
+
+function dottedLine(x1,y1,x2,y2,num = 10,weight=1) {
+	strokeWeight(weight);
+	for (let i = 0; i < 2*num; i++) {
+		dx = (x2-x1)/(2*num);
+		dy = (y2-y1)/(2*num);
+		if (i % 2 == 0) {
+			line(x1 + i*dx, y1 + i*dy, x1 + (i+1)*dx, y1 + (i+1)*dy)
+		}
+	}
+}
+
+function sign(n) {
+	return (n > 0 ? 1 : n < 0 ? -1 : null);
+}
+
+function coinFlip() {
+	return 2*floor(random(0,2) ) - 1;
+}
+
+function randomIn(set)
+{
+    var randomKey = floor(random() * set.length);
+    return set[randomKey];
+}
+
 function approx(val, n) {
 	return val.toFixed(n);
 }
