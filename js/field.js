@@ -239,7 +239,7 @@ class Sphere extends Field {
 		noStroke();
 		textAlign(CENTER);
 		rectMode(CENTER);
-		text("Projective Plane", x, y - s/2 - 10);
+		text("Sphere", x, y - s/2 - 10);
 		noFill();
 		stroke(0);
 		rect(x, y, s, s);
