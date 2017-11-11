@@ -8,6 +8,7 @@ class Pong {
 		this.paused = false;
 		this.hits = 0;
 		this.maxScore = 5; // unimplemented
+		this.state = 0;
 	}
 
 	update() {
@@ -62,12 +63,39 @@ Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		game.field.draw(width/2-40, height-40, 60);
 	}
 	
+	showGameControls() {
+		textAlign(CENTER);
+		noStroke();
+		fill(0);
+		textSize(12);
+		text(`
+PADDLE CONTROLS
+Player 1 - UP and DOWN
+Player 2 - A and Z
+`, width/2-200, height/2);
+		text(`
+CHANGE SURFACES
+C - Cylinder
+T - Torus
+S - Sphere
+M - Mobius Strip
+P - Projetive Plane
+`, width/2, height/2);
+		text(`
+GAME CONTROL
+Spacebar - Pause
+B - New Ball
+H - Toggle HUD
+`, width/2+200, height/2);
+	}
+
 	pauseScreen() {
 		textSize(96);
 		stroke(0);
 		fill(255);
 		textAlign(CENTER);
-		text("PAUSED", width/2, height/2+30);
+		text("PAUSED", width/2, height/2-100);
+		this.showGameControls();
 	}
 
 	unpause() {
@@ -78,18 +106,17 @@ Velocity: (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		stroke(0);
 		fill(255);
 		textAlign(CENTER);
-		textSize(60);
-		text("TOPOLOGICAL", width/2, height/2-100);
+		textSize(38);
+		text("TOPOLOGICAL", width/2, height/2-150);
 		textSize(96);
-		text("PONG", width/2, height/2-30);
+		text("PONG", width/2, height/2-80);
 		textSize(16);
 		noStroke();
 		fill(0);
-		text("This is the classic game of Pong on the two-dimensional manifold of your choice!", width/2 - 200, height/2, 400, 200);
+		text("The classic game of Pong on the two-manifold of your choice!", width/2 - 140, height/2-60, 280, 100);
+		this.showGameControls();
+		textSize(20);
+		fill( round(millis()/500) % 2 == 0 ? 0 : 200 );
 		text("Press the spacebar to begin!", width/2 - 150, height/2 + 200, 300, 100);
-		for (let i = 0; i < 1000; i++) {
-			console.log(i);
-		}
 	}
-
 }

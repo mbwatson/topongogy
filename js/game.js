@@ -1,68 +1,57 @@
 let paddle;
+// 0 - Welcome Screen
+// 1 - Playing
+// 2 - Game Over (coming soon)
 
 function setup() {
 	var canvas = createCanvas(800,600);
 	game = new Pong();
-	showGameControls();
 }
 
 function draw() {
-	game.field.decorate();
-	// game.welcomeScreen();
-	game.showScores();
-	if (!game.paused) {
-		// update
-		if (game.ball.collide(game.p1.paddle)) {
-			game.ball.swat();
-			game.hits += 1;
-		}
-		if (game.ball.collide(game.p2.paddle) ) {
-			game.ball.swat();
-			game.hits += 1;
-		}
-		game.update();
-	} else {
-		game.pauseScreen();
+	switch(game.state) {
+		case 0: // welcome screen
+			game.field.decorate();
+			game.welcomeScreen();
+			break;
+		case 1: // playing
+			game.field.decorate();
+			game.showScores();
+			if (game.paused === true) {
+				game.pauseScreen();
+			} else {
+				// update
+				if (game.ball.collide(game.p1.paddle)) {
+					game.ball.swat();
+					game.hits += 1;
+				}
+				if (game.ball.collide(game.p2.paddle) ) {
+					game.ball.swat();
+					game.hits += 1;
+				}
+				game.update();
+			}
+			// draw
+			if (game.hud) { game.showHUD(); }
+			game.p1.paddle.draw();
+			game.p2.paddle.draw();
+			game.ball.draw();
+			break;
+		case 2:
+			// game.gameOverScreen();
+			break;
+		default:
+			break;
 	}
-	// draw
-	if (game.hud) { game.showHUD(); }
-	game.p1.paddle.draw();
-	game.p2.paddle.draw();
-	game.ball.draw();
-}
-
-function showGameControls() {
-	let titleDiv = createDiv(`Topological Surface Pong`).class('title');
-	let paddleControls = createDiv(`
-<h4>Paddle Controls</h4>
-<p>Player 1: &#8593; and &#8595;</p>
-<p>Player 2: A and Z;</p>
-	`).class('paddleControls');
-	let surfaceControls = createDiv(`
-<h4>Change Surfaces</h4>
-<ul>
-	<li>C - Cylinder</li>
-	<li>T - Torus</li>
-	<li>S - Sphere</li>
-	<li>M - M&#246;bius Strip</li>
-	<li>P - Projetive Plane</li>
-</ul>
-	`).class('surfaceControls');
-	let gameControls = createDiv(`
-<h4>Game Control</h4>
-<p>Spacebar - Pause</p>
-<p>B - Serve new ball</p>
-<p>H - Toggle HUD</p>
-	`).class('gameControls');
-	let instructionsDiv = createDiv('').class('instructions');
-	instructionsDiv.child(paddleControls);
-	instructionsDiv.child(surfaceControls);
-	instructionsDiv.child(gameControls);
 }
 
 function keyPressed() {
 	if (key === ' ') {
-		game.paused = !game.paused;
+		if (game.state == 0) {
+			game.state = 1;
+		} else {
+			game.paused = !game.paused;
+		}
 	} else {
 		if (!game.paused) {
 			// players' controls
