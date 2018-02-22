@@ -88,7 +88,7 @@ C - Cylinder
 T - Torus
 S - Sphere
 M - Mobius Strip
-P - Projetive Plane
+P - Projective Plane
 `, width/2, height/2 + 50);
 		textStyle(BOLD);
 		text('GAME CONTROL', width/2 + 200, height/2 + 50);
