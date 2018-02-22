@@ -56,11 +56,11 @@ class Torus extends Field {
 		super(x1, y1, x2, y2);
 	}
 	topEdge(ball) {
-		ball.y = ball.maxY; 
+		ball.y = ball.maxY;
 		return(ball);
 	}
 	bottomEdge(ball) {
-		ball.y = ball.minY; 
+		ball.y = ball.minY;
 		return(ball);
 	}
 	leftEdge(ball) {
@@ -122,6 +122,47 @@ class MobiusStrip extends Field {
 		rect(x, y, s, s);
 		arrow(x-s/2, y, 'up');
 		arrow(x+s/2, y, 'down');
+	}
+}
+
+class KleinBottle extends Field {
+	constructor(x1, y1, x2, y2) {
+		super(x1, y1, x2, y2);
+	}
+	topEdge(ball) {
+		ball.y = ball.maxY;
+		return(ball);
+	}
+	bottomEdge(ball) {
+		ball.y = ball.minY
+		return(ball);
+	}
+	leftEdge(ball) {
+		ball.x = ball.maxX;
+		ball.y = ball.maxY - ball.y;
+		ball.dy *= -1;
+		return(ball);
+	}
+	rightEdge(ball) {
+		ball.x = ball.minX;
+		ball.y = ball.maxY - ball.y;
+		ball.dy *= -1;
+		return(ball);
+	}
+	draw(x, y, s = 80) {
+		noStroke();
+		textAlign(CENTER);
+		rectMode(CENTER);
+		text("Klein Bottle", x, y - s/2 - 10);
+		noFill();
+		stroke(0);
+		rect(x, y, s, s);
+		arrow(x-s/2, y, 'up');
+		arrow(x+s/2, y, 'down');
+		arrow(x-4, y-s/2, 'right');
+		arrow(x+4, y-s/2, 'right');
+		arrow(x-4, y+s/2, 'right');
+		arrow(x+4, y+s/2, 'right');
 	}
 }
 

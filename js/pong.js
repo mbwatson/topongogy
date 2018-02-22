@@ -86,6 +86,7 @@ Player 2 - A and Z
 		text(`
 C - Cylinder
 T - Torus
+K - Klein Bottle
 S - Sphere
 M - Mobius Strip
 P - Projective Plane

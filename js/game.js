@@ -71,6 +71,7 @@ function keyPressed() {
 	  if (key == 'R') { game.resetScores(); }
 	  // surface change
 	  if (key == 'C') { game.field = new Cylinder(0, 0, width, height); }
+	  if (key == 'K') { game.field = new KleinBottle(0, 0, width, height); }
 	  if (key == 'T') { game.field = new Torus(0, 0, width, height); }
 	  if (key == 'S') { game.field = new Sphere(0, 0, width, height); }
 	  if (key == 'M') { game.field = new MobiusStrip(0, 0, width, height); }
@@ -98,7 +99,7 @@ function sign(n) {
 }
 
 function coinFlip() {
-	return 2*floor(random(0,2) ) - 1;
+	return(random() < 0.5 ? -1 : 1);
 }
 
 function randomIn(set)
